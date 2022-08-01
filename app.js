@@ -86,14 +86,26 @@ new Vue({
             this.userData.push(dataObject);
             this.userEmail = "";
             this.userPassword = "";
+            this.setStorage();
         },
         deleteFromUser(key){
             this.userData.splice(key, 1);
+            this.setStorage();
         },
         updateFromUser(dataObject){
             this.userEmail = dataObject.emailVal;
             this.userPassword = dataObject.passwordVal;
             this.userData.splice(dataObject.key, 1);
+            this.setStorage();
+        },
+        getStorage(){
+            this.userData = JSON.parse(localStorage.getItem("user-data")) || [];
+        },
+        setStorage(){
+            localStorage.setItem("user-data", JSON.stringify(this.userData));
         }
+    },
+    mounted() {
+        this.getStorage();
     }
 });
