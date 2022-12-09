@@ -3,11 +3,11 @@ Vue.component("input-side", {
     <div class="input__side">
         <div class="input__box">
             <label>Email</label>
-            <input id="email" type="email" placeholder="Enter Email" v-model="email"/>
+            <input id="email" type="email" placeholder="Enter your email" v-model="email"/>
         </div>
         <div class="input__box">
             <label>Password</label>
-            <input id="password" type="text" placeholder="Enter Password" v-model="password"/>
+            <input id="password" type="text" placeholder="Enter your password" v-model="password"/>
         </div>
         <button class="save__btn" v-on:click="clickBtn">Save</button>
     </div>
