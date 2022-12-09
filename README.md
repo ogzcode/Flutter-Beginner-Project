@@ -9,8 +9,9 @@ Vue.js ile geliştirdiğim, email ve şifre saklamak için kullanılabilecek bir
 
 #### Öğrendiklerim
 * v-for
-* Bileşe tanımlama ve props lar
+* Bileşen tanımlama ve props lar
 * Bileşenler arasında emit() ile veri transferi.
 * localStorage e erişim ve veri düzenleme.
 
 ### Ekran Görüntüsü
+![resim](https://user-images.githubusercontent.com/58819819/206746481-7d6eab9b-a286-40e9-aa16-2d2579e6e985.png)
