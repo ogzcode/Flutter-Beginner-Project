@@ -13,6 +13,7 @@ class FetchBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         color: Colors.white,
+        margin: const EdgeInsets.only(bottom: 16, top: 16),
         child: Center(
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(

@@ -10,7 +10,10 @@ class AlbumList extends StatelessWidget {
     return Expanded(
       child: Obx(
         () => albumsController.isLoading.value
-            ? const Center(child: CircularProgressIndicator(color: Colors.blue,))
+            ? const Center(
+                child: CircularProgressIndicator(
+                color: Colors.blue,
+              ))
             : ListView.builder(
                 itemCount: albumsController.albums.length,
                 itemBuilder: (context, index) {
@@ -18,6 +21,25 @@ class AlbumList extends StatelessWidget {
                     title: Text(albumsController.albums[index].title),
                     subtitle: Text('ID: ${albumsController.albums[index].id}'),
                     leading: Image.network(albumsController.albums[index].url),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.thumb_up, color: Colors.red),
+                          onPressed: () {
+                            albumsController.addLike(index);
+                          },
+                        ),
+                        Obx(() => Text(albumsController.getAlbumLikes(index))),
+                        IconButton(
+                          icon: const Icon(Icons.comment, color: Colors.blue),
+                          onPressed: () {
+                            // Yorum ekranına albüm id'si ile yönlendirme
+                            Get.toNamed('/comments/${albumsController.albums[index].id}');
+                          },
+                        ),
+                      ],
+                    ),
                   );
                 },
               ),
