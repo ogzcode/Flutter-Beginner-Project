@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 
 import { register, login, getUser, updateUser, deleteUser } from './controller/authController.js';
+import { getAllUsers, deleteAllUser } from './controller/userController.js';
 import { authMiddleware } from './middleware/authMiddleware.js';
 
 const app = express();
@@ -15,6 +16,9 @@ app.post('/login', login);
 app.get('/user', authMiddleware, getUser);
 app.put('/user', authMiddleware, updateUser);
 app.delete('/user', authMiddleware, deleteUser);
+app.get("/allUser", getAllUsers);
+app.get("/deleteAll", deleteAllUser);
+
 
 app.listen(3000, () => {
     console.log('Server running on port 3000');

@@ -39,4 +39,12 @@ export default class UserServices {
             }
         });
     }
+
+    static async getAllUser() {
+        return await prisma.user.findMany();
+    }
+
+    static async deleteAllUser() {
+        return await prisma.user.deleteMany();
+    }
 }
